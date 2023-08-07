@@ -27,7 +27,7 @@ const WishLists = () => {
                     <td className="product-des product-name">
                       <h5 className="product-name">
                         <a href="shop-product-right.html">
-                          J.Crew Mercantile Women's Short-Sleeve
+                          J.Crew Mercantile Womens Short-Sleeve
                         </a>
                       </h5>
                       <p className="font-xs">
@@ -59,7 +59,7 @@ const WishLists = () => {
                     <td className="product-des">
                       <h5 className="product-name">
                         <a href="shop-product-right.html">
-                          Amazon Essentials Women's Tank
+                          Amazon Essentials Womens Tank
                         </a>
                       </h5>
                       <p className="font-xs">
@@ -91,7 +91,7 @@ const WishLists = () => {
                     <td className="product-des">
                       <h5 className="product-name">
                         <a href="shop-product-right.html">
-                          Amazon Brand - Daily Ritual Women's Jersey{" "}
+                          Amazon Brand - Daily Ritual Womens Jersey{" "}
                         </a>
                       </h5>
                       <p className="font-xs">

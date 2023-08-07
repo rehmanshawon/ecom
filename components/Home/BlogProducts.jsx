@@ -68,7 +68,7 @@ const BlogProducts = () => {
                     </div>
                     <h4 className="post-title mb-25 text-limit-2-row">
                       <a href="blog-post-fullwidth.html">
-                        Not even the coronavirus can derail 5G's global momentum
+                        Not even the coronavirus can derail 5Gs global momentum
                       </a>
                     </h4>
                     <div className="entry-meta meta-1 font-xs color-grey mt-10 pb-10">
@@ -115,7 +115,7 @@ const BlogProducts = () => {
                     <span>Big Offer</span>
                     <h4>
                       Save 20% on <br />
-                      Women's socks
+                      Womens socks
                     </h4>
                     <a href="shop-grid-right.html">
                       Shop Now <i className="fi-rs-arrow-right"></i>

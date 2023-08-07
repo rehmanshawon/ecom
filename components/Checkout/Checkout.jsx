@@ -984,7 +984,7 @@ const Checkout = () => {
                         <i className="ti-check-box font-small text-muted mr-10"></i>
                         <h5>
                           <a href="shop-product-full.html">
-                            Women's Short Sleeve Loose
+                            Women Short Sleeve Loose
                           </a>
                         </h5>{" "}
                         <span className="product-qty">x 1</span>
@@ -1091,7 +1091,7 @@ const Checkout = () => {
                     <div className="form-group collapse in" id="paypal">
                       <p className="text-muted mt-5">
                         Pay via PayPal; you can pay with your credit card if you
-                        don't have a PayPal account.
+                        do not have a PayPal account.
                       </p>
                     </div>
                   </div>
@@ -1116,7 +1116,7 @@ const Checkout = () => {
                     <div className="form-group collapse in" id="paypal">
                       <p className="text-muted mt-5">
                         Pay via PayPal; you can pay with your credit card if you
-                        don't have a PayPal account.
+                        dont have a PayPal account.
                       </p>
                     </div>
                   </div>

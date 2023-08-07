@@ -26,7 +26,7 @@ export default function Home() {
             <div className="banner-text d-md-block d-none">
               <h4 className="mb-15 mt-40 text-brand">Get Best Quality Steel</h4>
               <h1 className="fw-600 mb-20">
-                We're a BSRM <br />
+                We are a BSRM <br />
                 Authorised Service Provider
               </h1>
               <a href="shop-grid-right.html" className="btn">

@@ -20,7 +20,9 @@ const PreOrderSettings = () => {
               {districts &&
                 districts.length > 0 &&
                 districts.map((item, i) => (
-                  <option value={item.name}>{item.name}</option>
+                  <option key={i} value={item.name}>
+                    {item.name}
+                  </option>
                 ))}
             </select>
           </div>
