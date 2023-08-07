@@ -1,0 +1,24 @@
+{
+  "stores": [
+    {
+      "name": "SuperMart",
+      "address": "123 Main Street, City A, State X",
+      "pay": "1000 tk (20%)"
+    },
+    {
+      "name": "MegaStore",
+      "address": "456 Elm Avenue, City B, State Y",
+      "pay": "1000 tk (20%)"
+    },
+    {
+      "name": "QuickStop",
+      "address": "789 Oak Road, City C, State Z",
+      "pay": "1000 tk (20%)"
+    },
+    {
+      "name": "CornerShop",
+      "address": "987 Pine Lane, City D, State W",
+      "pay": "1000 tk (20%)"
+    }
+  ]
+}
