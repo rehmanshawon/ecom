@@ -27,11 +27,11 @@ const nextConfig = {
   },
   serverRuntimeConfig: {
     dbConfig: {
-      host: "65.2.143.230",
+      host: "ecom-db.cbbdsky2ogtw.ap-south-1.rds.amazonaws.com",
       //host: "dbaas-db-10344356-do-user-14451522-0.b.db.ondigitalocean.com",
       port: 3306,
       user: "admin",
-      password: "ApsisINT@123",
+      password: "ApsisINT123",
       database: "borna_db",
     },
     secret:
