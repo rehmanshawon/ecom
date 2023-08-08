@@ -40,8 +40,8 @@ const nextConfig = {
   publicRuntimeConfig: {
     apiUrl:
       process.env.NODE_ENV === "development"
-        ? "https://65.2.143.230:3000/api" // development api
-        : "https://65.2.143.230:3000/api", // production api
+        ? "https://ecom.bornaengineering.com:3000/api" // development api
+        : "https://ecom.bornaengineering.com:3000/api", // production api
   },
 };
 
