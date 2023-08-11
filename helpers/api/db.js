@@ -18,12 +18,12 @@ async function initialize() {
     port,
     user,
     password,
-	socketPath:'/var/run/mysqld/mysqld.sock',
-    pool: {
-      max: 5,
-      min: 0,
-      idle: 10000,
-    },
+    //socketPath:'/var/run/mysqld/mysqld.sock',
+    // pool: {
+    //   max: 5,
+    //   min: 0,
+    //   idle: 10000,
+    // },
   });
   await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
 
@@ -43,7 +43,7 @@ async function initialize() {
   db.ProductAttribute = productAttributeModel(sequelize);
   db.ProductImage = imageModel(sequelize);
   db.Rating = ratingModel(sequelize);
-  db.Brand=brandModel(sequelize);
+  db.Brand = brandModel(sequelize);
 
   db.User.hasMany(db.Rating);
   db.Rating.belongsTo(db.User);
@@ -68,7 +68,7 @@ async function initialize() {
 
   db.Product.hasMany(db.Rating);
   db.Rating.belongsTo(db.Product);
-  
+
   db.Brand.hasMany(db.Product);
   db.Product.belongsTo(db.Brand);
 
@@ -105,7 +105,7 @@ function userModel(sequelize) {
 function categoryModel(sequelize) {
   const attributes = {
     category_name: { type: DataTypes.STRING, allowNull: true },
-    parent_id:{ type: DataTypes.INTEGER, allowNull: false, defaultValue:0 },
+    parent_id: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
     url: { type: DataTypes.STRING, allowNull: true },
   };
 
@@ -118,8 +118,8 @@ function categoryModel(sequelize) {
 function subCategoryModel(sequelize) {
   const attributes = {
     sub_category_name: { type: DataTypes.STRING, allowNull: true },
-    sub_category_unit:{ type: DataTypes.STRING, allowNull: true },
-    sub_category_value_type:{ type: DataTypes.STRING, allowNull: true },
+    sub_category_unit: { type: DataTypes.STRING, allowNull: true },
+    sub_category_value_type: { type: DataTypes.STRING, allowNull: true },
   };
 
   return sequelize.define("SubCategory", attributes, {
@@ -142,8 +142,12 @@ function productModel(sequelize) {
     packaging_delivery: { type: DataTypes.TEXT, allowNull: true },
     featured: { type: DataTypes.BOOLEAN, defaultValue: false },
     thumbnail: { type: DataTypes.STRING, allowNull: true },
-    sub_category_value:{ type: DataTypes.STRING, allowNull: true },
-    sub_category_level:{type: DataTypes.INTEGER, allowNull: false, defaultValue:0}
+    sub_category_value: { type: DataTypes.STRING, allowNull: true },
+    sub_category_level: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
   };
 
   return sequelize.define("Product", attributes, {

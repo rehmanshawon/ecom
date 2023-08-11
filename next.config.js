@@ -27,7 +27,7 @@ const nextConfig = {
   },
   serverRuntimeConfig: {
     dbConfig: {
-      host: "be-comm.cbbdsky2ogtw.ap-south-1.rds.amazonaws.com",
+      host: "be-primary.cbbdsky2ogtw.ap-south-1.rds.amazonaws.com",
       //host: "127.0.0.1",
       port: 3306,
       user: "admin",
