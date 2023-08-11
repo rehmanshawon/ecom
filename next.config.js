@@ -27,7 +27,8 @@ const nextConfig = {
   },
   serverRuntimeConfig: {
     dbConfig: {
-      host: "be-ecom-db.cbbdsky2ogtw.ap-south-1.rds.amazonaws.com",
+      // host: "be-ecom-db.cbbdsky2ogtw.ap-south-1.rds.amazonaws.com",
+      host: "127.0.0.1",
       port: 3306,
       user: "admin",
       password: "Y4aQ24gVDP9A2u4",
