@@ -27,21 +27,26 @@ const nextConfig = {
   },
   serverRuntimeConfig: {
     dbConfig: {
-      host: "ecom-db.cbbdsky2ogtw.ap-south-1.rds.amazonaws.com",
-      //host: "dbaas-db-10344356-do-user-14451522-0.b.db.ondigitalocean.com",
+      host: "be-ecom-db.cbbdsky2ogtw.ap-south-1.rds.amazonaws.com",
       port: 3306,
       user: "admin",
-      password: "ApsisINT123",
+      password: "Y4aQ24gVDP9A2u4",
       database: "borna_db",
     },
     secret:
       "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING",
   },
+  // publicRuntimeConfig: {
+  //   apiUrl:
+  //     process.env.NODE_ENV === "development"
+  //       ? "https://ecom.bornaengineering.com:3000/api" // development api
+  //       : "https//ecom.bornaengineering.com:3000/api", // production api
+  // },
   publicRuntimeConfig: {
     apiUrl:
       process.env.NODE_ENV === "development"
-        ? "https://ecom.bornaengineering.com:3000/api" // development api
-        : "https//ecom.bornaengineering.com:3000/api", // production api
+        ? "https://localhost:3000/api" // development api
+        : "https://localhost:3000/api", // production api
   },
 };
 
