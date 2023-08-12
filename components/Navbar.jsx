@@ -146,7 +146,7 @@ const Navbar = () => {
 
   const getCategories = async () => {
     const data = await categoriesService.getAll();
-
+    console.log("im here");
     const catMenu = {
       title: "Categories",
       url: "/categories",
@@ -155,7 +155,8 @@ const Navbar = () => {
           title: item.category_name,
           url: item.category_name,
           submenu: item.Products.map((product) => {
-            return { title: product.brand, url: product.brand };
+            return { title: product.name, url: product.name };
+            //return { title: product.brand, url: product.brand };
           }),
         };
       }),
