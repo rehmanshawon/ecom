@@ -27,8 +27,8 @@ const nextConfig = {
   },
   serverRuntimeConfig: {
     dbConfig: {
-      //host: "be-primary.cbbdsky2ogtw.ap-south-1.rds.amazonaws.com",
-      host: "127.0.0.1",
+      host: "ecom.bornaengineering.com",
+      //host: "127.0.0.1",
       port: 3306,
       user: "admin",
       password: "ApsisINT@123",
@@ -46,8 +46,8 @@ const nextConfig = {
   publicRuntimeConfig: {
     apiUrl:
       process.env.NODE_ENV === "development"
-        ? "/api" // development api
-        : "/api", // production api
+        ? "https://ecom.bornaengineering.com/api" // development api
+        : "https://ecom.bornaengineering.com/api", // production api
   },
 };
 

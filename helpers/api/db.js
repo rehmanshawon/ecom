@@ -18,7 +18,7 @@ async function initialize() {
     port,
     user,
     password,
-    //socketPath:'/var/run/mysqld/mysqld.sock',
+    //socketPath: "/var/run/mysqld/mysqld.sock",
     // pool: {
     //   max: 5,
     //   min: 0,
