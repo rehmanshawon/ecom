@@ -17,7 +17,7 @@ async function getAll() {
       },
       {
         model: db.Rating,
-        attributes: ["Rating_value"],
+        attributes: ["rating_value"],
       },
     ],
   });
