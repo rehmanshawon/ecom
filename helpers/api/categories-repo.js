@@ -11,12 +11,13 @@ export const categoriesRepo = {
 async function getAll() {
   console.log("here i am");
   return await db.Category.findAll({
-    // include: [
-    //   {
-    //     model: db.Product,
-    //     attributes: ["id", "sku", "createdAt"],
-    //   },
-    // ],
+    subQuery: false,
+    include: [
+      {
+        model: db.Product,
+        attributes: ["id", "sku", "createdAt"],
+      },
+    ],
     attributes: ["id", "category_name", "createdAt"],
   });
 }
