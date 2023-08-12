@@ -19,11 +19,11 @@ async function initialize() {
     user,
     password,
     //socketPath: "/var/run/mysqld/mysqld.sock",
-    pool: {
-      max: 5,
-      min: 0,
-      idle: 10000,
-    },
+    // pool: {
+    //   max: 5,
+    //   min: 0,
+    //   idle: 10000,
+    // },
   });
   await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
 
@@ -31,7 +31,7 @@ async function initialize() {
   const sequelize = new Sequelize(database, user, password, {
     dialect: "mysql",
     logging: true,
-    sync: true,
+    //sync: true,
     //ssl: true,
   });
 
@@ -74,7 +74,7 @@ async function initialize() {
   db.Product.belongsTo(db.Brand);
 
   // sync all models with database
-  await sequelize.sync({ alter: false });
+  await sequelize.sync({ alter: true });
 
   db.initialized = true;
 }
