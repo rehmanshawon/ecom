@@ -30,7 +30,7 @@ async function initialize() {
   // connect to db
   const sequelize = new Sequelize(database, user, password, {
     dialect: "mysql",
-    logging: false,
+    logging: true,
     sync: true,
     //ssl: true,
   });
@@ -205,7 +205,7 @@ function brandModel(sequelize) {
     brand_name: { type: DataTypes.STRING, allowNull: true },
     brand_code: { type: DataTypes.STRING, allowNull: true },
   };
-  return sequelize.define("Rating", attributes, {
+  return sequelize.define("Brand", attributes, {
     timestamps: true,
     paranoid: true,
   });
