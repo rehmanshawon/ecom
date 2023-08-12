@@ -19,25 +19,26 @@ async function initialize() {
     user,
     password,
     //socketPath: "/var/run/mysqld/mysqld.sock",
-    // pool: {
-    //   max: 5,
-    //   min: 0,
-    //   idle: 10000,
-    // },
+    pool: {
+      max: 5,
+      min: 0,
+      idle: 10000,
+    },
   });
   await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
 
   // connect to db
   const sequelize = new Sequelize(database, user, password, {
     dialect: "mysql",
-    logging: true,
+    logging: false,
+    sync: true,
     //ssl: true,
   });
 
   // init models and add them to the exported db object
   db.User = userModel(sequelize);
   db.Category = categoryModel(sequelize);
-  db.SubCategory = subCategoryModel(sequelize);
+  //db.SubCategory = subCategoryModel(sequelize);
   db.Attribute = attributesModel(sequelize);
   db.Product = productModel(sequelize);
   db.ProductAttribute = productAttributeModel(sequelize);
@@ -51,8 +52,8 @@ async function initialize() {
   db.Category.hasMany(db.Product);
   db.Product.belongsTo(db.Category);
 
-  db.SubCategory.hasMany(db.Product);
-  db.Product.belongsTo(db.SubCategory);
+  // db.SubCategory.hasMany(db.Product);
+  // db.Product.belongsTo(db.SubCategory);
 
   db.Product.hasMany(db.ProductAttribute);
   db.ProductAttribute.belongsTo(db.Product);
@@ -63,8 +64,8 @@ async function initialize() {
   db.Product.hasMany(db.ProductImage);
   db.ProductImage.belongsTo(db.Product);
 
-  db.Attribute.hasMany(db.ProductImage);
-  db.ProductImage.belongsTo(db.Attribute);
+  // db.Attribute.hasMany(db.ProductImage);
+  // db.ProductImage.belongsTo(db.Attribute);
 
   db.Product.hasMany(db.Rating);
   db.Rating.belongsTo(db.Product);
@@ -105,6 +106,7 @@ function userModel(sequelize) {
 function categoryModel(sequelize) {
   const attributes = {
     category_name: { type: DataTypes.STRING, allowNull: true },
+    category_value: { type: DataTypes.STRING, allowNull: true },
     parent_id: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
     url: { type: DataTypes.STRING, allowNull: true },
   };
@@ -115,22 +117,22 @@ function categoryModel(sequelize) {
   });
 }
 
-function subCategoryModel(sequelize) {
-  const attributes = {
-    sub_category_name: { type: DataTypes.STRING, allowNull: true },
-    sub_category_unit: { type: DataTypes.STRING, allowNull: true },
-    sub_category_value_type: { type: DataTypes.STRING, allowNull: true },
-  };
+// function subCategoryModel(sequelize) {
+//   const attributes = {
+//     sub_category_name: { type: DataTypes.STRING, allowNull: true },
+//     sub_category_unit: { type: DataTypes.STRING, allowNull: true },
+//     sub_category_value_type: { type: DataTypes.STRING, allowNull: true },
+//   };
 
-  return sequelize.define("SubCategory", attributes, {
-    timestamps: true,
-    paranoid: true,
-  });
-}
+//   return sequelize.define("SubCategory", attributes, {
+//     timestamps: true,
+//     paranoid: true,
+//   });
+// }
 
 function productModel(sequelize) {
   const attributes = {
-    brand: { type: DataTypes.STRING, allowNull: true },
+    //brand: { type: DataTypes.STRING, allowNull: true },
     sku: { type: DataTypes.STRING, allowNull: true },
     title: { type: DataTypes.STRING, allowNull: true },
     short_description: { type: DataTypes.TEXT, allowNull: true },
@@ -142,12 +144,6 @@ function productModel(sequelize) {
     packaging_delivery: { type: DataTypes.TEXT, allowNull: true },
     featured: { type: DataTypes.BOOLEAN, defaultValue: false },
     thumbnail: { type: DataTypes.STRING, allowNull: true },
-    sub_category_value: { type: DataTypes.STRING, allowNull: true },
-    sub_category_level: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0,
-    },
   };
 
   return sequelize.define("Product", attributes, {
