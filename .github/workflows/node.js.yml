@@ -7,7 +7,7 @@ on:
 jobs:
   build:
 
-    runs-on: [self-hosted, ecom]
+    runs-on: [ubuntu-latest,self-hosted, ecom]
 
     strategy:
       matrix:
