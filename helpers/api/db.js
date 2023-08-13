@@ -74,7 +74,7 @@ async function initialize() {
   db.Product.belongsTo(db.Brand);
 
   // sync all models with database
-  await sequelize.sync({ alter: true });
+  await sequelize.sync({ alter: false });
 
   db.initialized = true;
 }
