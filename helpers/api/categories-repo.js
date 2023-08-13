@@ -15,7 +15,7 @@ async function getAll() {
     include: [
       {
         model: db.Product,
-        attributes: ["id", "sku", "createdAt"],
+        attributes: ["id", "sku"],
       },
     ],
     attributes: ["id", "category_name", "createdAt"],
