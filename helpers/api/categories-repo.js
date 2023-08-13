@@ -18,7 +18,7 @@ async function getAll() {
         attributes: ["id", "sku"],
       },
     ],
-    attributes: ["id", "category_name", "createdAt"],
+    attributes: ["id", "category_name"],
   });
 }
 
