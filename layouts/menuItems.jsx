@@ -1,6 +1,6 @@
 export const menuItems = [
   {
-    title: "Home",
+    category_value: "Home",
     url: "/",
   },
   // {
@@ -140,7 +140,7 @@ export const menuItems = [
   //   ],
   // },
   {
-    title: "About",
+    category_value: "About",
     url: "/about",
   },
 ];

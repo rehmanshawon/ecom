@@ -106,6 +106,7 @@ function userModel(sequelize) {
 function categoryModel(sequelize) {
   const attributes = {
     category_name: { type: DataTypes.STRING, allowNull: true },
+    category_code: { type: DataTypes.STRING, allowNull: true },
     category_value: { type: DataTypes.STRING, allowNull: true },
     parent_id: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
     url: { type: DataTypes.STRING, allowNull: true },

@@ -2,7 +2,8 @@ import { menuItems } from "@/layouts/menuItems";
 import MenuItems from "./MenuItems";
 import { categoriesService, alertService } from "services";
 import { useEffect, useState } from "react";
-import { set } from "react-hook-form";
+import { useRouter } from "next/router";
+
 /*
 {
     title: "Categories",
@@ -143,26 +144,37 @@ import { set } from "react-hook-form";
 */
 const Navbar = () => {
   const [categories, setCategories] = useState();
-
+  const { asPath } = useRouter();
+  console.log("path", asPath);
   const getCategories = async () => {
     const data = await categoriesService.getAll();
-    console.log("im here");
+    //console.log("im here");
     const catMenu = {
-      title: "Categories",
+      category_value: "Categories",
       url: "/categories",
-      submenu: data?.map((item) => {
-        return {
-          title: item.category_name,
-          url: item.category_name,
-          submenu: item.Products.map((product) => {
-            return { title: product.name, url: product.name };
-            //return { title: product.brand, url: product.brand };
-          }),
-        };
-      }),
+      // submenu: data?.map((item) => {
+      //   return {
+      //     title: item.category_value,
+      //     url: item.url,
+      //     submenu: item.Products.map((product) => {
+      //       return { title: product.name, url: product.name };
+      //       //return { title: product.brand, url: product.brand };
+      //     }),
+      //   };
+      // }),
+      submenu: getNestedChildren(
+        data.map((item) => ({
+          ...item,
+          url: asPath.includes("categories")
+            ? item.id
+            : "categories/" + item.id,
+        })),
+        0
+      ),
     };
     setCategories(catMenu);
-    if (!menuItems.find((item) => item.title === "Categories")) {
+    console.log("cat", catMenu);
+    if (!menuItems.find((item) => item.category_value === "Categories")) {
       menuItems.push(catMenu);
     }
   };
@@ -170,6 +182,19 @@ const Navbar = () => {
     getCategories();
   }, []);
 
+  function getNestedChildren(arr, parent_id) {
+    var children = [];
+    for (var i = 0; i < arr.length; ++i) {
+      if (arr[i].parent_id == parent_id) {
+        var grandChildren = getNestedChildren(arr, arr[i].id);
+        if (grandChildren.length) {
+          arr[i].submenu = grandChildren;
+        }
+        children.push(arr[i]);
+      }
+    }
+    return children;
+  }
   // useEffect(() => {
   //   if (categories.length > 0) {
   //     menuItems.push(categories);

@@ -44,7 +44,7 @@ const MenuItems = ({ items, depthLevel }) => {
             onClick={() => setDropdown((prev) => !prev)}
           >
             {/* {items.title}  */}
-            <a href={items.url}>{items.title}</a>
+            <a href={items.url}>{items.category_value}</a>
             {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
           </button>
           <Dropdown
@@ -54,7 +54,7 @@ const MenuItems = ({ items, depthLevel }) => {
           />
         </>
       ) : (
-        <a href={items.url}>{items.title}</a>
+        <a href={items.url}>{items.category_value}</a>
       )}
     </li>
   );
